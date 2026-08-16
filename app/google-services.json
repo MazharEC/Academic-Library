@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "885619356234",
+    "project_id": "academic-library-f9edd",
+    "storage_bucket": "academic-library-f9edd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885619356234:android:779ce4435f464338052cb3",
+        "android_client_info": {
+          "package_name": "com.appsv.academiclibrary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZOiSVu5xgj5Q1-sq1Ib-8sJS1SAnVLwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

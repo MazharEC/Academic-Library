@@ -6,6 +6,7 @@ class BookModel (
     var bookAuthor : String = "",
     var bookUrl : String = "",
     var bookDescription : String = "",
-    var category : String = "",
+    var courseName : String = "",
+    var booksDept : String = "",
     var bookImage : String = ""
 )
