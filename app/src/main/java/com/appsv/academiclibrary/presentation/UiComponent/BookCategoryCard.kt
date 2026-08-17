@@ -1,4 +1,4 @@
-package com.example.ebook1.presentation.UiComponent
+package com.appsv.academiclibrary.presentation.UiComponent
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

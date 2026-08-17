@@ -10,9 +10,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.example.ebook1.presentation.Effects.categoryShimmer
+import com.appsv.academiclibrary.presentation.Effects.categoryShimmer
 
-import com.example.ebook1.presentation.UiComponent.BookCategoryCard
+import com.appsv.academiclibrary.presentation.UiComponent.BookCategoryCard
 import com.appsv.academiclibrary.presentation.ViewModel
 
 @Composable
