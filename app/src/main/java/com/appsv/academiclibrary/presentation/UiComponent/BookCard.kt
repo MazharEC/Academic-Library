@@ -24,18 +24,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.SubcomposeAsyncImage
-import com.appsv.academiclibrary.presentation.Effects.imageani
+import com.appsv.academiclibrary.presentation.Effects.Imageani
 import com.appsv.academiclibrary.presentation.navigation.Routes
 
 @Composable
 fun BookCard(
     imageUrl: String,
     title: String,
-    author: String = null.toString(),
     description: String,
     navHostController: NavHostController,
-    bookUrl: String
-
+    bookUrl: String,
+    author: String = "Unknown"
 ) {
 
     Card(
@@ -63,7 +62,7 @@ fun BookCard(
                     .size(100.dp)
                     .clip(RoundedCornerShape(8.dp)),
                 loading = {
-                    imageani()
+                    Imageani()
                 },
                 error = {
                     Text(text = "Error loading image")
@@ -87,7 +86,7 @@ fun BookCard(
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = "- ${author}",
+                    text = "- $author",
                     fontWeight = FontWeight.Bold,
                     fontStyle = FontStyle.Italic,
                     fontSize = 12.sp,

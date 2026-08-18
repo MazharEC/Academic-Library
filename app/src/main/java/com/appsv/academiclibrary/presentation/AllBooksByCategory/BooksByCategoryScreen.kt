@@ -20,24 +20,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.appsv.academiclibrary.presentation.BookViewModel
 import com.appsv.academiclibrary.presentation.Effects.AnimatedShimmer
 import com.appsv.academiclibrary.presentation.UiComponent.BookCard
-import com.appsv.academiclibrary.presentation.ViewModel
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BooksByCategoryScreen(
-    viewModel: ViewModel = hiltViewModel(),
+    viewModel: BookViewModel = hiltViewModel(),
     category: String,
     navHostController: NavHostController
 ) {
 
     LaunchedEffect(Unit) {
-        viewModel.BringAllBooksByCategory(category)
+        viewModel.bringAllBooksByCategory(category)
     }
 
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
-
 
     Scaffold(
         modifier = Modifier
@@ -47,24 +47,23 @@ fun BooksByCategoryScreen(
             TopAppBar(
                 title = { Text(category) },
                 navigationIcon = {
-                    IconButton(onClick = {navHostController.popBackStack() }) {
+                    IconButton(onClick = { navHostController.popBackStack() }) {
                         Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back")
                     }
                 }
             )
-
         }
-    )
-    { innerPadding ->
+    ) { innerPadding ->
         val res = viewModel.state.value
 
-        Column(modifier = Modifier
-            .fillMaxSize()
-            .padding(innerPadding)) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+        ) {
 
             when {
                 res.isLoading -> {
-
                     Column(modifier = Modifier.fillMaxSize()) {
                         LazyColumn {
                             items(10) {
@@ -73,7 +72,6 @@ fun BooksByCategoryScreen(
                         }
                     }
                 }
-
 
                 res.error.isNotEmpty() -> {
                     Text(text = res.error)
@@ -84,7 +82,7 @@ fun BooksByCategoryScreen(
                         LazyColumn(modifier = Modifier.fillMaxSize()) {
                             items(res.items) {
                                 BookCard(
-                                    imageUrl = it.image,
+                                    imageUrl = it.bookImage,
                                     title = it.bookName,
                                     description = it.bookDescription,
                                     bookUrl = it.bookUrl,
@@ -95,6 +93,7 @@ fun BooksByCategoryScreen(
                         }
                     }
                 }
+
                 else -> {
                     Text(text = "No books available")
                 }

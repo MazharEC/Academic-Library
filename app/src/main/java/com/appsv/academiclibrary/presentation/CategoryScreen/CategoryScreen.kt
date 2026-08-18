@@ -12,13 +12,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.appsv.academiclibrary.presentation.Effects.CategoryShimmer
 import com.appsv.academiclibrary.presentation.UiComponent.BookCategoryCard
-import com.appsv.academiclibrary.presentation.ViewModel
+import com.appsv.academiclibrary.presentation.BookViewModel
 
 @Composable
-fun CategoryScreen(viewModel: ViewModel = hiltViewModel(), navHostController: NavHostController) {
+fun CategoryScreen(viewModel: BookViewModel = hiltViewModel(), navHostController: NavHostController) {
 
     LaunchedEffect(Unit) {
-        viewModel.BringCategories()
+        viewModel.bringCategories()
     }
 
     Column(
@@ -52,8 +52,8 @@ fun CategoryScreen(viewModel: ViewModel = hiltViewModel(), navHostController: Na
                 ) {
                     items(res.category) {
                         BookCategoryCard(
-                            imageUrl = it.categoryImageUrl,
-                            category = it.name,
+                            imageUrl = it.deptImageUrl,
+                            category = it.deptName,
                             navHostController = navHostController
                         )
                     }

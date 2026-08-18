@@ -13,27 +13,26 @@ import com.appsv.academiclibrary.presentation.PdfViewerScreen
 @Composable
 fun NavGraph(navHostController: NavHostController) {
 
-   NavHost(navController = navHostController, startDestination = Routes.HomeScreen) {
-       composable<Routes.HomeScreen> {
+    NavHost(navController = navHostController, startDestination = Routes.HomeScreen) {
+        composable<Routes.HomeScreen> {
 
-           HomeScreen(navHostController = navHostController)
+            HomeScreen(navHostController = navHostController)
 
-       }
+        }
 
-       composable<Routes.ShowPdfScreen> { backStackEntry ->
+        composable<Routes.ShowPdfScreen> { backStackEntry ->
 
-           val data : Routes.ShowPdfScreen = backStackEntry.toRoute()
-           PdfViewerScreen(url = data.url)
+            val data: Routes.ShowPdfScreen = backStackEntry.toRoute()
+            PdfViewerScreen(url = data.url)
 
-       }
+        }
 
-       composable<Routes.BooksByCategory> { BackStackEntry ->
+        composable<Routes.BooksByCategory> { backStackEntry ->
 
-           val data2 : Routes.BooksByCategory= BackStackEntry.toRoute()
+            val data2: Routes.BooksByCategory = backStackEntry.toRoute()
 
-           BooksByCategoryScreen(category = data2.category, navHostController = navHostController)
+            BooksByCategoryScreen(category = data2.category, navHostController = navHostController)
 
-       }
-   }
+        }
+    }
 }
-

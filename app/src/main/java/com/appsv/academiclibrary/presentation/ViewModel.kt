@@ -13,22 +13,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ViewModel @Inject constructor(val repo: AllBookRepo) : ViewModel() {
+class BookViewModel @Inject constructor(val repo: AllBookRepo) : ViewModel() {
 
     private val _state: MutableState<ItemState> = mutableStateOf(ItemState())
     val state: MutableState<ItemState> = _state
 
-    fun BringAllBooks() {
+    fun bringAllBooks() {
         viewModelScope.launch {
             repo.getAllBooks().collect {
-
                 when (it) {
                     is ResultState.Loading -> {
                         _state.value = ItemState(isLoading = true)
                     }
 
                     is ResultState.Error -> {
-                        _state.value = ItemState(error = it.exception.localizedMessage)
+                        _state.value = ItemState(error = it.exception.localizedMessage ?: "Something went wrong")
                     }
 
                     is ResultState.Success -> {
@@ -39,18 +38,16 @@ class ViewModel @Inject constructor(val repo: AllBookRepo) : ViewModel() {
         }
     }
 
-    fun BringCategories() {
-
+    fun bringCategories() {
         viewModelScope.launch {
             repo.getAllCategories().collect {
-
                 when (it) {
                     is ResultState.Loading -> {
                         _state.value = ItemState(isLoading = true)
                     }
 
                     is ResultState.Error -> {
-                        _state.value = ItemState(error = it.exception.localizedMessage)
+                        _state.value = ItemState(error = it.exception.localizedMessage ?: "Something went wrong")
                     }
 
                     is ResultState.Success -> {
@@ -61,18 +58,16 @@ class ViewModel @Inject constructor(val repo: AllBookRepo) : ViewModel() {
         }
     }
 
-    fun BringAllBooksByCategory(category : String) {
-
+    fun bringAllBooksByCategory(category: String) {
         viewModelScope.launch {
             repo.getBooksByCategory(category).collect {
-
                 when (it) {
                     is ResultState.Loading -> {
                         _state.value = ItemState(isLoading = true)
                     }
 
                     is ResultState.Error -> {
-                        _state.value = ItemState(error = it.exception.localizedMessage)
+                        _state.value = ItemState(error = it.exception.localizedMessage ?: "Something went wrong")
                     }
 
                     is ResultState.Success -> {
@@ -84,12 +79,9 @@ class ViewModel @Inject constructor(val repo: AllBookRepo) : ViewModel() {
     }
 }
 
-
 data class ItemState(
-
     val isLoading: Boolean = false,
     val items: List<BookModel> = emptyList(),
     val error: String = "",
-    val category : List<BooksDeptModel> = emptyList()
-
+    val category: List<BooksDeptModel> = emptyList()
 )

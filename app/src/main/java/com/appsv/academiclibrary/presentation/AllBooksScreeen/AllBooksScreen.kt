@@ -9,15 +9,19 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import com.appsv.academiclibrary.presentation.BookViewModel
 import com.appsv.academiclibrary.presentation.Effects.AnimatedShimmer
 import com.appsv.academiclibrary.presentation.UiComponent.BookCard
-import com.appsv.academiclibrary.presentation.ViewModel
 
 @Composable
-fun AllBooksScreen(modifier: Modifier = Modifier, viewModel: ViewModel = hiltViewModel(), navHostController: NavHostController) {
+fun AllBooksScreen(
+    modifier: Modifier = Modifier,
+    viewModel: BookViewModel = hiltViewModel(),
+    navHostController: NavHostController
+) {
 
     LaunchedEffect(Unit) {
-        viewModel.BringAllBooks()
+        viewModel.bringAllBooks()
     }
 
     val res = viewModel.state.value
@@ -45,20 +49,18 @@ fun AllBooksScreen(modifier: Modifier = Modifier, viewModel: ViewModel = hiltVie
                 LazyColumn(modifier = modifier.fillMaxSize()) {
                     items(res.items) {
                         BookCard(
-                            imageUrl = it.image,
+                            imageUrl = it.bookImage,
                             title = it.bookName,
                             author = it.bookAuthor,
                             description = it.bookDescription,
                             navHostController = navHostController,
                             bookUrl = it.bookUrl
-
                         )
-
-
                     }
                 }
-
             }
-        }else -> Text(text = "No Books available", modifier = modifier)
+        }
+
+        else -> Text(text = "No Books available", modifier = modifier)
     }
 }

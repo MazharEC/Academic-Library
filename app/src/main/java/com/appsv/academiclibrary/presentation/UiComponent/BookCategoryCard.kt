@@ -31,19 +31,14 @@ fun BookCategoryCard(
     category: String,
     navHostController: NavHostController
 ) {
-
     Card(
         modifier = Modifier
             .padding(8.dp)
             .clickable {
                 navHostController.navigate(Routes.BooksByCategory(category))
-
             }
-
     ) {
-
         Column(
-
             modifier = Modifier
                 .size(200.dp)
                 .padding(8.dp),
