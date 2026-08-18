@@ -32,7 +32,6 @@ fun AnimatedShimmer() {
         Color.LightGray.copy(alpha = 0.6f),
         Color.LightGray.copy(alpha = 0.2f),
         Color.LightGray.copy(alpha = 0.6f)
-
     )
     val transition = rememberInfiniteTransition()
     val translateAnimation = transition.animateFloat(
@@ -113,14 +112,9 @@ fun ShimmerGridItem(brush: Brush) {
                         .fillMaxWidth(0.3f)
                         .background(brush)
                 )
-
-
             }
-
-
         }
     }
-
 }
 
 @Composable
@@ -128,14 +122,12 @@ fun ShimmerGridItemPreview() {
     ShimmerGridItem(brush = Brush.linearGradient(listOf(Color.White, Color.LightGray, Color.White)))
 }
 
-
 @Composable
-fun categoryShimmer() {
-    val shimmerColos = listOf(
+fun CategoryShimmer() {
+    val shimmerColors = listOf(
         Color.LightGray.copy(alpha = 0.6f),
         Color.LightGray.copy(alpha = 0.2f),
         Color.LightGray.copy(alpha = 0.6f)
-
     )
     val transition = rememberInfiniteTransition()
     val translateAnimation = transition.animateFloat(
@@ -151,7 +143,7 @@ fun categoryShimmer() {
     )
 
     val brush = Brush.linearGradient(
-        colors = shimmerColos,
+        colors = shimmerColors,
         start = Offset(10f, 10f),
         end = Offset(translateAnimation.value, translateAnimation.value)
     )
@@ -198,8 +190,8 @@ fun categoryShimmer() {
 
 
 @Composable
-fun imageani() {
-    val shimmerColos = listOf(
+fun Imageani() {
+    val shimmerColors = listOf(
         Color.LightGray.copy(alpha = 0.6f),
         Color.LightGray.copy(alpha = 0.2f),
         Color.LightGray.copy(alpha = 0.6f)
@@ -219,7 +211,7 @@ fun imageani() {
     )
 
     val brush = Brush.linearGradient(
-        colors = shimmerColos,
+        colors = shimmerColors,
         start = Offset(10f, 10f),
         end = Offset(translateAnimation.value, translateAnimation.value)
     )

@@ -10,8 +10,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.appsv.academiclibrary.presentation.Effects.categoryShimmer
-
+import com.appsv.academiclibrary.presentation.Effects.CategoryShimmer
 import com.appsv.academiclibrary.presentation.UiComponent.BookCategoryCard
 import com.appsv.academiclibrary.presentation.ViewModel
 
@@ -34,7 +33,7 @@ fun CategoryScreen(viewModel: ViewModel = hiltViewModel(), navHostController: Na
                 Column(modifier = Modifier.fillMaxSize()) {
                     LazyVerticalGrid(GridCells.Fixed(2), modifier = Modifier.fillMaxSize()) {
                         items(10) {
-                            categoryShimmer()
+                            CategoryShimmer()
                         }
                     }
                 }

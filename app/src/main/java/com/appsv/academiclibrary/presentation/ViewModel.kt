@@ -18,38 +18,25 @@ class ViewModel @Inject constructor(val repo: AllBookRepo) : ViewModel() {
     private val _state: MutableState<ItemState> = mutableStateOf(ItemState())
     val state: MutableState<ItemState> = _state
 
-
     fun BringAllBooks() {
-
         viewModelScope.launch {
             repo.getAllBooks().collect {
 
                 when (it) {
-
                     is ResultState.Loading -> {
-
                         _state.value = ItemState(isLoading = true)
-
                     }
 
                     is ResultState.Error -> {
-
                         _state.value = ItemState(error = it.exception.localizedMessage)
                     }
 
                     is ResultState.Success -> {
-
                         _state.value = ItemState(items = it.data)
                     }
-
                 }
-
-
             }
-
         }
-
-
     }
 
     fun BringCategories() {
@@ -58,31 +45,20 @@ class ViewModel @Inject constructor(val repo: AllBookRepo) : ViewModel() {
             repo.getAllCategories().collect {
 
                 when (it) {
-
                     is ResultState.Loading -> {
-
                         _state.value = ItemState(isLoading = true)
-
                     }
 
                     is ResultState.Error -> {
-
                         _state.value = ItemState(error = it.exception.localizedMessage)
                     }
 
                     is ResultState.Success -> {
-
                         _state.value = ItemState(category = it.data)
                     }
-
                 }
-
-
             }
-
         }
-
-
     }
 
     fun BringAllBooksByCategory(category : String) {
@@ -91,33 +67,21 @@ class ViewModel @Inject constructor(val repo: AllBookRepo) : ViewModel() {
             repo.getBooksByCategory(category).collect {
 
                 when (it) {
-
                     is ResultState.Loading -> {
-
                         _state.value = ItemState(isLoading = true)
-
                     }
 
                     is ResultState.Error -> {
-
                         _state.value = ItemState(error = it.exception.localizedMessage)
                     }
 
                     is ResultState.Success -> {
-
                         _state.value = ItemState(items = it.data)
                     }
                 }
             }
-
         }
-
-
     }
-
-
-
-
 }
 
 
