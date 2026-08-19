@@ -1,7 +1,5 @@
 package com.appsv.academiclibrary.presentation.UiComponent
 
-package com.plcoding.bookpedia.book.presentation.book_list.components
-
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -18,22 +16,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.key
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.key.Key.Companion.R
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import cmp_bookpedia.composeapp.generated.resources.Res
-import cmp_bookpedia.composeapp.generated.resources.close_hint
-import cmp_bookpedia.composeapp.generated.resources.search_hint
-import com.plcoding.bookpedia.core.presentation.DarkBlue
-import com.plcoding.bookpedia.core.presentation.DesertWhite
-import com.plcoding.bookpedia.core.presentation.SandYellow
-import org.jetbrains.compose.resources.stringResource
+import com.appsv.academiclibrary.R
+
 
 @Composable
 fun BookSearchBar(
@@ -42,10 +34,14 @@ fun BookSearchBar(
     onImeSearch: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    val sandYellow = colorResource(R.color.sand_yellow)
+    val darkBlue = colorResource(R.color.dark_blue)
+    val desertWhite = colorResource(R.color.desert_white)
+
     CompositionLocalProvider(
         LocalTextSelectionColors provides TextSelectionColors(
-            handleColor = SandYellow,
-            backgroundColor = SandYellow
+            handleColor = sandYellow,
+            backgroundColor = sandYellow
         )
     ) {
         OutlinedTextField(
@@ -53,12 +49,12 @@ fun BookSearchBar(
             onValueChange = onSearchQueryChange,
             shape = RoundedCornerShape(100),
             colors = OutlinedTextFieldDefaults.colors(
-                cursorColor = DarkBlue,
-                focusedBorderColor = SandYellow
+                cursorColor = darkBlue,
+                focusedBorderColor = sandYellow
             ),
             placeholder = {
                 Text(
-                    text = stringResource(Res.string.search_hint)
+                    text = stringResource(R.string.search_hint)
                 )
             },
             leadingIcon = {
@@ -89,7 +85,7 @@ fun BookSearchBar(
                     ) {
                         Icon(
                             imageVector = Icons.Default.Close,
-                            contentDescription = stringResource(Res.string.close_hint),
+                            contentDescription = stringResource(R.string.close_hint),
                             tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
@@ -98,7 +94,7 @@ fun BookSearchBar(
             modifier = modifier
                 .background(
                     shape = RoundedCornerShape(100),
-                    color = DesertWhite
+                    color = desertWhite
                 )
                 .minimumInteractiveComponentSize()
         )
