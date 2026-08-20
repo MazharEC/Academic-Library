@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation.AllBooksScreeen
+package com.appsv.academiclibrary.presentation.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,9 +10,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.appsv.academiclibrary.presentation.BookViewModel
-import com.appsv.academiclibrary.presentation.Effects.AnimatedShimmer
-import com.appsv.academiclibrary.presentation.UiComponent.BookCard
+import com.appsv.academiclibrary.presentation.viewmodel.BookViewModel
+import com.appsv.academiclibrary.presentation.components.AnimatedShimmer
+import com.appsv.academiclibrary.presentation.components.BookCard
 
 @Composable
 fun AllBooksScreen(

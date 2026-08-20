@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation.TabScreen
+package com.appsv.academiclibrary.presentation.screens
 
 
 import androidx.compose.foundation.layout.Column
@@ -23,8 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.appsv.academiclibrary.presentation.AllBooksScreeen.AllBooksScreen
-import com.appsv.academiclibrary.presentation.CategoryScreen.CategoryScreen
 import kotlinx.coroutines.launch
 
 

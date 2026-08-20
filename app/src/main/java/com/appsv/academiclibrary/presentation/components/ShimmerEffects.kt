@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation.Effects
+package com.appsv.academiclibrary.presentation.components
 
 import androidx.compose.animation.core.FastOutLinearInEasing
 import androidx.compose.animation.core.animateFloat

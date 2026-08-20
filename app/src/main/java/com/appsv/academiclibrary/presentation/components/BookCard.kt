@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation.UiComponent
+package com.appsv.academiclibrary.presentation.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.SubcomposeAsyncImage
-import com.appsv.academiclibrary.presentation.Effects.Imageani
 import com.appsv.academiclibrary.presentation.navigation.Routes
 
 @Composable

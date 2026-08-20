@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation
+package com.appsv.academiclibrary.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize

@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation.AllBooksByCategory
+package com.appsv.academiclibrary.presentation.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,9 +21,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.appsv.academiclibrary.presentation.BookViewModel
-import com.appsv.academiclibrary.presentation.Effects.AnimatedShimmer
-import com.appsv.academiclibrary.presentation.UiComponent.BookCard
+import com.appsv.academiclibrary.presentation.viewmodel.BookViewModel
+import com.appsv.academiclibrary.presentation.components.AnimatedShimmer
+import com.appsv.academiclibrary.presentation.components.BookCard
 
 
 @OptIn(ExperimentalMaterial3Api::class)

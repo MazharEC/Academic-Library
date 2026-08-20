@@ -5,9 +5,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.appsv.academiclibrary.presentation.AllBooksByCategory.BooksByCategoryScreen
-import com.appsv.academiclibrary.presentation.HomeScreenUI.HomeScreen
-import com.appsv.academiclibrary.presentation.PdfViewerScreen
+import com.appsv.academiclibrary.presentation.screens.BooksByCategoryScreen
+import com.appsv.academiclibrary.presentation.screens.HomeScreen
+import com.appsv.academiclibrary.presentation.screens.PdfViewerScreen
 
 
 @Composable

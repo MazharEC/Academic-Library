@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation.HomeScreenUI
+package com.appsv.academiclibrary.presentation.screens
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
@@ -36,7 +36,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.appsv.academiclibrary.R
-import com.appsv.academiclibrary.presentation.TabScreen.TabScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 

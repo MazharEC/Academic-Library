@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation
+package com.appsv.academiclibrary.presentation.viewmodel
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
