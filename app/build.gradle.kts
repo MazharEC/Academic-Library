@@ -1,11 +1,11 @@
+// app build.gradle.kts plugins block
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
-
-    id("kotlin-kapt")
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")        // no version here — inherits 2.0.21 from root
+    alias(libs.plugins.kotlin.compose)         // also resolves 2.0.21 from toml — now matches
     id("com.google.dagger.hilt.android")
-    kotlin("plugin.serialization") version "2.0.0"
+    kotlin("kapt")
+    kotlin("plugin.serialization") version "2.0.21"   // match here too
     alias(libs.plugins.google.gms.google.services)
 }
 
@@ -19,7 +19,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -42,6 +41,9 @@ android {
     buildFeatures {
         compose = true
     }
+}
+kapt {
+    correctErrorTypes = true
 }
 
 dependencies {
@@ -67,8 +69,9 @@ dependencies {
 
     implementation(libs.androidx.material.icons.extended)
 
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
+
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
 
     implementation(libs.androidx.hilt.navigation.compose)
 
