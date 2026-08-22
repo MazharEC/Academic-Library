@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.presentation.screens
+package com.appsv.academiclibrary.presentation.AllBooksScreeen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,9 +10,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import com.appsv.academiclibrary.presentation.viewmodel.BookViewModel
 import com.appsv.academiclibrary.presentation.components.AnimatedShimmer
 import com.appsv.academiclibrary.presentation.components.BookCard
+import com.appsv.academiclibrary.presentation.viewmodel.BookViewModel
 
 @Composable
 fun AllBooksScreen(
@@ -26,10 +26,10 @@ fun AllBooksScreen(
     }
 
     val res = viewModel.state.value
+    val filteredItems = viewModel.filteredItems.value
 
     when {
         res.isLoading -> {
-
             Column(modifier = modifier.fillMaxSize()) {
                 LazyColumn {
                     items(10) {
@@ -40,15 +40,24 @@ fun AllBooksScreen(
         }
 
         res.error.isNotEmpty() -> {
-
             Text(text = res.error, modifier = modifier)
         }
 
-        res.items.isNotEmpty() -> {
+        res.items.isEmpty() -> {
+            Text(text = "No Books available", modifier = modifier)
+        }
 
+        filteredItems.isEmpty() -> {
+            Column(modifier = modifier.fillMaxSize()) {
+                Text(text = "No results found")
+                Text(text = "Try searching with a different keyword")
+            }
+        }
+
+        else -> {
             Column(modifier = modifier.fillMaxSize()) {
                 LazyColumn(modifier = modifier.fillMaxSize()) {
-                    items(res.items) {
+                    items(filteredItems) {
                         BookCard(
                             imageUrl = it.bookImage,
                             title = it.bookName,
@@ -61,7 +70,5 @@ fun AllBooksScreen(
                 }
             }
         }
-
-        else -> Text(text = "No Books available", modifier = modifier)
     }
 }
