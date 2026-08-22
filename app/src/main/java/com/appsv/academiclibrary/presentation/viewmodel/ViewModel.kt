@@ -6,7 +6,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.appsv.academiclibrary.domain.repo.AllBookRepo
+import com.appsv.academiclibrary.domain.repository.AllBookRepo
 import com.appsv.academiclibrary.model.BookModel
 import com.appsv.academiclibrary.model.BooksDeptModel
 import com.appsv.academiclibrary.model.ResultState

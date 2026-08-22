@@ -1,4 +1,4 @@
-package com.appsv.academiclibrary.domain.repo
+package com.appsv.academiclibrary.domain.repository
 
 import com.appsv.academiclibrary.model.BookModel
 import com.appsv.academiclibrary.model.BooksDeptModel

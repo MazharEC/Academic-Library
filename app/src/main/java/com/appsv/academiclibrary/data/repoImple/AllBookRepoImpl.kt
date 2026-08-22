@@ -1,6 +1,6 @@
 package com.appsv.academiclibrary.data.repoImple
 
-import com.appsv.academiclibrary.domain.repo.AllBookRepo
+import com.appsv.academiclibrary.domain.repository.AllBookRepo
 import com.appsv.academiclibrary.model.BookModel
 import com.appsv.academiclibrary.model.BooksDeptModel
 import com.appsv.academiclibrary.model.ResultState
@@ -17,17 +17,14 @@ import javax.inject.Inject
 class AllBookRepoImpl @Inject constructor(val firebaseDatabase: FirebaseDatabase) : AllBookRepo {
 
     override fun getAllBooks(): Flow<ResultState<List<BookModel>>> = callbackFlow {
-
         trySend(ResultState.Loading)
-
         val valueEvent = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val items: List<BookModel> = snapshot.children.mapNotNull { value ->
-                    value.getValue<BookModel>()
+                    value.getValue<BookModel>()?.apply { bookId = value.key ?: "" }
                 }
                 trySend(ResultState.Success(items))
             }
-
             override fun onCancelled(error: DatabaseError) {
                 trySend(ResultState.Error(error.toException()))
             }
